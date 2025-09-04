@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alby Costa • Speaker radiofonico & blogger</title>
+  <meta name="description" content="Sito ufficiale di Alby Costa: speaker radiofonico, direttore artistico e blogger. Podcast PopNews, articoli, contatti e media kit." />
+  <meta name="author" content="Alby Costa" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Alby Costa • Speaker radiofonico & blogger" />
+  <meta property="og:description" content="Podcast PopNews, blog, on air e contatti." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/alby-costa-portrait.webp" />
+  <meta property="og:locale" content="it_IT" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <style>
+    :root{ --bg:#0b1020; --panel:#111832; --text:#e6ecff; --muted:#9fb0ff; --accent:#7c9cff; --card:#0f1428; --border:#1f2a4a; --shadow:0 10px 25px rgba(0,0,0,.35); --radius:18px }
+    @media (prefers-color-scheme: light){ :root{ --bg:#f7f8ff; --panel:#ffffff; --text:#0b1020; --muted:#4b5563; --accent:#4f46e5; --card:#ffffff; --border:#e5e7eb } body{background:linear-gradient(180deg,#eef1ff,#fff 30%)} }
+    *{box-sizing:border-box} html,body{margin:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Apple Color Emoji','Segoe UI Emoji'; background:radial-gradient(1200px 600px at 80% -10%, rgba(124,156,255,.18), transparent 60%), var(--bg); color:var(--text); line-height:1.6}
+    a{color:var(--accent); text-decoration:none} a:hover{text-decoration:underline}
+    .container{max-width:1100px; margin-inline:auto; padding:24px}
+    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(6px); background:color-mix(in oklab, var(--bg) 88%, transparent); border-bottom:1px solid var(--border); z-index:50}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px}
+    .logo{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--accent),#93c5fd); color:#fff; box-shadow:var(--shadow)}
+    .nav a{font-weight:600; opacity:.9} .navlinks{display:flex; gap:18px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; border:1px solid var(--border); background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 90%, transparent), color-mix(in oklab, var(--panel) 70%, transparent)); color:var(--text); padding:12px 18px; border-radius:14px; font-weight:700; box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px)} .btn.primary{background:linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent) 75%, black)); border-color:transparent; color:#fff} .btn.alt{background:transparent}
+    .hero{padding:70px 24px 30px} .hero-inner{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:center}
+    .tag{display:inline-block; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.14em; padding:6px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted)}
+    h1{font-size:42px; line-height:1.1; margin:14px 0 10px} .lead{font-size:18px; color:var(--muted); max-width:60ch}
+    .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px}
+    .hero-card{background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 60%, transparent), color-mix(in oklab, var(--panel) 80%, black)); border:1px solid var(--border); padding:18px; border-radius:var(--radius); box-shadow:var(--shadow)}
+    .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px}
+    .stat{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:12px; text-align:center} .stat b{font-size:22px}
+    .portrait{aspect-ratio:1/1; border-radius:20px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow); background:linear-gradient(135deg,#172554,#020617); display:grid; place-items:center}
+    .portrait img{width:100%; height:100%; object-fit:cover}
+    section{padding:60px 24px} .section-title{font-size:28px; margin:0 0 6px} .section-sub{color:var(--muted); margin:0 0 20px}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px} .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow)} .card h3{margin:0 0 6px}
+    .episode{display:flex; gap:14px} .cover{width:84px; height:84px; border-radius:12px; background:#111; flex:0 0 auto; overflow:hidden} .cover img{width:100%; height:100%; object-fit:cover}
+    .post{display:flex; flex-direction:column; gap:6px} .post time{color:var(--muted); font-size:14px}
+    .schedule{border-collapse:collapse; width:100%; overflow:hidden; border:1px solid var(--border); border-radius:14px} .schedule th, .schedule td{padding:12px 14px; border-bottom:1px solid var(--border)} .schedule th{text-align:left; background:color-mix(in oklab, var(--panel) 60%, transparent)}
+    .service{display:flex; gap:14px; align-items:flex-start}
+    form{display:grid; gap:12px} input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:var(--panel); color:var(--text)} textarea{min-height:120px}
+    footer{padding:32px 24px; border-top:1px solid var(--border); color:var(--muted)}
+    .social{display:flex; gap:10px} .social a{display:inline-grid; place-items:center; width:38px; height:38px; border-radius:12px; border:1px solid var(--border); background:var(--card)}
+    @media (max-width: 900px){ .hero-inner{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr} .stats{grid-template-columns:repeat(3,1fr)} }
+    @media (max-width:560px){ h1{font-size:34px} .stats{grid-template-columns:1fr 1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><div class="logo" aria-hidden="true">AC</div><span>Alby Costa</span></div>
+      <nav class="navlinks">
+        <a href="#about">Chi sono</a><a href="#podcast">Podcast</a><a href="#blog">Blog</a><a href="#onair">On Air</a><a href="#servizi">Servizi</a><a href="#contatti" class="btn alt">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <span class="tag">Speaker & blogger</span>
+          <h1>Voce, storie e musica.<br/>Benvenuti nel mio mondo on air.</h1>
+          <p class="lead">Sono <strong>Alby Costa</strong>, direttore artistico e speaker. Qui trovi <em>PopNews</em> – il mio podcast – gli articoli del blog, gli orari <em>on air</em> e come lavorare insieme per il tuo progetto audio.</p>
+          <div class="cta"><a class="btn primary" href="#podcast">Ascolta PopNews</a><a class="btn" href="#blog">Leggi il blog</a></div>
+          <div class="hero-card" style="margin-top:18px">
+            <div style="display:flex; align-items:center; gap:12px"><div style="width:10px; height:10px; background:#22c55e; border-radius:999px"></div><div style="font-weight:700">Disponibile per collaborazioni 🎙️</div></div>
+            <div style="color:var(--muted); margin-top:6px">Voice over, conduzione live, consulenza palinsesti e lancio podcast.</div>
+            <div class="stats"><div class="stat"><b>+200</b><div>puntate on air</div></div><div class="stat"><b>+50</b><div>articoli sul blog</div></div><div class="stat"><b>2</b><div>emittenti attive</div></div></div>
+          </div>
+          <div class="social" style="margin-top:14px">
+            <a href="https://instagram.com/alby.68" aria-label="Instagram" title="Instagram">🔗</a>
+            <a href="https://www.youtube.com/@PopNews" aria-label="YouTube" title="YouTube">▶️</a>
+            <a href="https://mixcloud.com/" aria-label="Mixcloud" title="Mixcloud">☁️</a>
+            <a href="mailto:albertocosta1268@gmail.com" aria-label="Email" title="Email">✉️</a>
+          </div>
+        </div>
+        <div class="portrait"><img src="assets/alby-costa-portrait.webp" alt="Alby Costa in studio radio" loading="eager" decoding="async" fetchpriority="high"/></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container grid-2">
+        <div class="card">
+          <h2 class="section-title">Chi sono</h2>
+          <p class="section-sub">Speaker radiofonico, direttore artistico e blogger.</p>
+          <p>Vivo la radio come una casa: microfoni, storie e musica. Ho diretto e condotto programmi in diverse emittenti, oggi sono la voce di <strong>PopNews</strong> e collaboro con diverse realtà. Sul blog racconto dischi, concerti e cultura pop.</p>
+          <div class="cta"><a class="btn" href="#servizi">Scopri i servizi</a><a class="btn alt" href="#contatti">Parliamone</a></div>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Competenze principali</h3>
+          <ul style="margin:0; padding-left:18px">
+            <li>Conduzione live e registrata</li>
+            <li>Voice over e spot</li>
+            <li>Scrittura e storytelling</li>
+            <li>Direzione artistica e palinsesti</li>
+            <li>Podcasting: idea → pubblicazione</li>
+          </ul>
+          <div class="hero-card" style="margin-top:14px"><b>Scarica CV / Media Kit</b><p class="section-sub" style="margin:6px 0 0">PDF aggiornato con bio, case study, demo e contatti.</p><a class="btn" href="#" download>Download</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="podcast">
+      <div class="container">
+        <h2 class="section-title">Podcast • PopNews</h2>
+        <p class="section-sub">Gli ultimi episodi dal feed del podcast.</p>
+        <div id="podcast-feed" class="grid-3"></div>
+        <div id="podcast-fallback" class="card" style="display:none">Impossibile caricare il podcast in questo momento.</div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="container">
+        <h2 class="section-title">Dal blog</h2>
+        <p class="section-sub">Ultimi articoli da Blogger.</p>
+        <div id="blog-feed" class="grid-3"></div>
+        <div id="blog-fallback" class="card" style="display:none">Impossibile caricare gli articoli del blog in questo momento.</div>
+      </div>
+    </section>
+
+    <section id="onair">
+      <div class="container">
+        <h2 class="section-title">On Air</h2>
+        <p class="section-sub">Vado in onda la <b>domenica</b> alle <b>21:00</b>.</p>
+        <div class="card">
+          <table class="schedule" aria-label="Orari on air">
+            <thead><tr><th>Giorno</th><th>Orario</th><th>Emittente</th><th>Programma</th></tr></thead>
+            <tbody><tr><td>Domenica</td><td>21:00 – 22:00</td><td>Radio MyDay</td><td>PopNews (live)</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="servizi">
+      <div class="container">
+        <h2 class="section-title">Servizi</h2>
+        <p class="section-sub">Dalla voce al progetto completo.</p>
+        <div class="grid-3">
+          <div class="card service"><div>🎙️</div><div><h3>Voice over & spot</h3><p>Voce calda e presente per spot, trailer, audiolibri, IVR. Consegne rapide e file puliti.</p></div></div>
+          <div class="card service"><div>📻</div><div><h3>Conduzione</h3><p>Programmi live e registrati. Interviste, storytelling e gestione del tempo radiofonico.</p></div></div>
+          <div class="card service"><div>🧭</div><div><h3>Consulenza & Palinsesti</h3><p>Dal format alla messa in onda: linee guida per una radio riconoscibile e sostenibile.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti">
+      <div class="container grid-2">
+        <div class="card">
+          <h2 class="section-title">Contatti</h2>
+          <p class="section-sub">Scrivimi per collaborazioni, interviste o richieste commerciali.</p>
+          <form name="contact" method="POST">
+            <label>Nome <input type="text" name="nome" placeholder="Il tuo nome" required /></label>
+            <label>Email <input type="email" name="email" placeholder="nome@email.it" required /></label>
+            <label>Messaggio <textarea name="messaggio" placeholder="Raccontami il tuo progetto" required></textarea></label>
+            <div class="cta"><a class="btn" href="mailto:albertocosta1268@gmail.com?subject=Contatto%20dal%20sito">Invia via email</a></div>
+          </form>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Dati utili e social</h3>
+          <p><b>Email personale:</b> <a href="mailto:albertocosta1268@gmail.com">albertocosta1268@gmail.com</a><br/>
+             <b>Instagram:</b> <a href="https://instagram.com/alby.68">@alby.68</a><br/>
+             <b>YouTube:</b> <a href="https://www.youtube.com/@PopNews">@PopNews</a><br/>
+             <b>Facebook:</b> <a href="https://www.facebook.com/alberto.costa.963?locale=it_IT">alberto.costa.963</a><br/>
+             <b>X (Twitter):</b> <a href="#">@AlbyCosta</a><br/>
+             <b>Threads:</b> <a href="https://www.threads.com/@alby.68">@alby.68</a></p>
+          <p style="color:var(--muted)">Disponibile per progetti in Italia e remoto.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div>© <span id="year"></span> Alby Costa — Tutti i diritti riservati</div>
+      <div style="display:flex; gap:12px"><a href="#">Privacy</a><a href="#">Cookie</a><a href="#">Note legali</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // FEED URLs
+    const PODCAST_FEED = 'https://anchor.fm/s/132bc128/podcast/rss';
+    const BLOG_FEED    = 'https://ilblogdialby68.blogspot.com/feeds/posts/default?alt=rss';
+
+    // Proxies CORS in fallback
+    const proxies = [
+      (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+      (url) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+      (url) => `https://cors.isomorphic-git.org/${url}`
+    ];
+
+    const parseXML = (xmlText) => (new window.DOMParser()).parseFromString(xmlText, 'application/xml');
+
+    const txt = (parent, sel) => { const n = parent.querySelector(sel); return n ? (n.textContent || '').trim() : ''; };
+    const attr = (parent, sel, name) => { const n = parent.querySelector(sel); return n ? (n.getAttribute(name) || '').trim() : ''; };
+
+    // --- Estrattori RSS 2.0 ---
+    const rssItems = (xml) => Array.from(xml.querySelectorAll('channel > item'));
+    const rssMapPodcast = (item) => ({
+      title: txt(item, 'title') || 'Senza titolo',
+      link:  txt(item, 'link') || (item.querySelector('link')?.getAttribute('href') || ''),
+      pubDate: txt(item, 'pubDate') || txt(item, 'dc\\:date') || new Date().toISOString(),
+      thumbnail: attr(item, 'itunes\\:image', 'href') || attr(item, 'media\\:thumbnail', 'url') || attr(item, 'media\\:content', 'url') || ''
+    });
+    const rssMapBlog = (item) => ({
+      title: txt(item, 'title') || 'Senza titolo',
+      link:  txt(item, 'link') || (item.querySelector('link')?.getAttribute('href') || ''),
+      pubDate: txt(item, 'pubDate') || txt(item, 'dc\\:date') || new Date().toISOString()
+    });
+
+    // --- Estrattori ATOM ---
+    const atomItems = (xml) => Array.from(xml.getElementsByTagNameNS('*','entry'));
+    function atomLink(entry){
+      const alt = Array.from(entry.getElementsByTagNameNS('*','link')).find(l => (l.getAttribute('rel')||'') === 'alternate' && l.getAttribute('href'));
+      return alt?.getAttribute('href') || entry.querySelector('link')?.getAttribute('href') || '';
+    }
+    const atomMapBlog = (entry) => ({
+      title: txt(entry, 'title') || 'Senza titolo',
+      link:  atomLink(entry),
+      pubDate: txt(entry, 'updated') || txt(entry, 'published') || new Date().toISOString()
+    });
+
+    // Render
+    function createEpisodeCard({title, link, thumbnail, pubDate}){
+      const wrap = document.createElement('article');
+      wrap.className = 'card episode';
+      wrap.innerHTML = `
+        <div class="cover">${thumbnail ? `<img src="${thumbnail}" alt="Copertina episodio"/>` : ''}</div>
+        <div>
+          <h3><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+          <p class="section-sub">${new Date(pubDate).toLocaleDateString('it-IT')}</p>
+          <div class="cta"><a class="btn" href="${link}" target="_blank" rel="noopener">Ascolta</a></div>
+        </div>`;
+      return wrap;
+    }
+    function createPostCard({title, link, pubDate}){
+      const wrap = document.createElement('article');
+      wrap.className = 'card post';
+      const iso = new Date(pubDate).toISOString().slice(0,10);
+      wrap.innerHTML = `
+        <time datetime="${iso}">${new Date(pubDate).toLocaleDateString('it-IT')}</time>
+        <h3><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+        <p>Leggi l'articolo su Blogger.</p>`;
+      return wrap;
+    }
+
+    async function fetchWithFallbacks(url){
+      let lastErr;
+      for(const p of proxies){
+        try{
+          const res = await fetch(p(url));
+          if(!res.ok) throw new Error('HTTP '+res.status);
+          const text = await res.text();
+          if(!text) throw new Error('Risposta vuota');
+          return parseXML(text);
+        }catch(e){ lastErr = e; }
+      }
+      throw lastErr || new Error('Tutti i proxy hanno fallito');
+    }
+
+    (async () => {
+      // PODCAST (RSS 2.0)
+      const podMount = document.getElementById('podcast-feed');
+      const podFallback = document.getElementById('podcast-fallback');
+      try{
+        const xml = await fetchWithFallbacks(PODCAST_FEED);
+        // Solo RSS (Anchor è RSS 2.0)
+        let items = rssItems(xml).map(rssMapPodcast);
+        // Ordina per data
+        items = items.sort((a,b)=> new Date(b.pubDate) - new Date(a.pubDate)).slice(0,3);
+        if(items.length) items.forEach(i => podMount.appendChild(createEpisodeCard(i)));
+        else podFallback.style.display = 'block';
+      }catch(e){
+        console.warn('Podcast feed error:', e);
+        podFallback.textContent = 'Impossibile caricare il podcast: ' + e.message;
+        podFallback.style.display = 'block';
+      }
+
+      // BLOG (RSS 2.0 o ATOM)
+      const blogMount = document.getElementById('blog-feed');
+      const blogFallback = document.getElementById('blog-fallback');
+      try{
+        const xml = await fetchWithFallbacks(BLOG_FEED);
+        let items;
+        const isRSS = xml.querySelector('channel > item');
+        if(isRSS){
+          items = rssItems(xml).map(rssMapBlog);
+        } else {
+          items = atomItems(xml).map(atomMapBlog);
+        }
+        items = items
+          .filter(i => i.link) // evita voci senza link
+          .sort((a,b)=> new Date(b.pubDate) - new Date(a.pubDate))
+          .slice(0,3);
+        if(items.length) items.forEach(i => blogMount.appendChild(createPostCard(i)));
+        else blogFallback.style.display = 'block';
+      }catch(e){
+        console.warn('Blog feed error:', e);
+        blogFallback.textContent = 'Impossibile caricare il blog: ' + e.message;
+        blogFallback.style.display = 'block';
+      }
+    })();
+  </script>
+</body>
+</html>
