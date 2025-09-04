@@ -313,3 +313,127 @@
   </script>
 </body>
 </html>
+
+
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // FEED: Podcast (RSS) e Blogger (Atom/JSON via JSONP)
+  const PODCAST_FEED = 'https://anchor.fm/s/132bc128/podcast/rss';
+  const BLOG_JSONP   = 'https://ilblogdialby68.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=10&callback=onBloggerFeed';
+
+  // --- RENDER HELPERS ---
+  function createEpisodeCard({title, link, thumbnail, pubDate}){
+    const wrap = document.createElement('article');
+    wrap.className = 'card episode';
+    wrap.innerHTML = `
+      <div class="cover">${thumbnail ? `<img src="${thumbnail}" alt="Copertina episodio"/>` : ''}</div>
+      <div>
+        <h3><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+        <p class="section-sub">${new Date(pubDate).toLocaleDateString('it-IT')}</p>
+        <div class="cta"><a class="btn" href="${link}" target="_blank" rel="noopener">Ascolta</a></div>
+      </div>`;
+    return wrap;
+  }
+  function createPostCard({title, link, pubDate}){
+    const wrap = document.createElement('article');
+    wrap.className = 'card post';
+    const iso = new Date(pubDate).toISOString().slice(0,10);
+    wrap.innerHTML = `
+      <time datetime="${iso}">${new Date(pubDate).toLocaleDateString('it-IT')}</time>
+      <h3><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+      <p>Leggi l'articolo su Blogger.</p>`;
+    return wrap;
+  }
+
+  // =============== BLOGGER (JSONP, niente CORS) ===============
+  // Blogger espone direttamente JSONP con ?alt=json-in-script&callback=...
+  window.onBloggerFeed = function onBloggerFeed(json){
+    try{
+      const entries = (json && json.feed && json.feed.entry) ? json.feed.entry : [];
+      const posts = entries.map(e => {
+        const title = (e.title && e.title.$t) || 'Senza titolo';
+        // link "alternate"
+        let link = '';
+        if(e.link && e.link.length){
+          const alt = e.link.find(l => l.rel === 'alternate' && l.href);
+          link = alt ? alt.href : (e.link[0].href || '');
+        }
+        const pubDate = (e.published && e.published.$t) || (e.updated && e.updated.$t) || new Date().toISOString();
+        return { title, link, pubDate };
+      })
+      .filter(p => p.link)
+      .sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate))
+      .slice(0,3);
+
+      const mount = document.getElementById('blog-feed');
+      const fallback = document.getElementById('blog-fallback');
+      if(posts.length){
+        posts.forEach(p => mount.appendChild(createPostCard(p)));
+      } else {
+        fallback.style.display = 'block';
+      }
+    }catch(err){
+      console.warn('Blogger JSONP error:', err);
+      const fallback = document.getElementById('blog-fallback');
+      fallback.textContent = 'Impossibile caricare il blog.';
+      fallback.style.display = 'block';
+    }
+  };
+
+  // Inietto lo script JSONP di Blogger
+  (function loadBlogger(){
+    const s = document.createElement('script');
+    s.src = BLOG_JSONP;
+    s.onerror = () => {
+      const fb = document.getElementById('blog-fallback');
+      fb.textContent = 'Impossibile caricare il blog (errore di rete).';
+      fb.style.display = 'block';
+    };
+    document.body.appendChild(s);
+  })();
+
+  // =============== PODCAST (RSS) via rss2json JSONP ===============
+  // rss2json supporta JSONP con ?callback=...
+  window.onPodcastFeed = function onPodcastFeed(data){
+    try{
+      const items = Array.isArray(data.items) ? data.items : [];
+      const episodes = items.map(it => ({
+        title: it.title || 'Senza titolo',
+        link:  it.link || (it.guid && it.guid.rendered) || '',
+        pubDate: it.pubDate || it.pubDate_raw || new Date().toISOString(),
+        thumbnail: it.thumbnail || (it.enclosure && it.enclosure.link) || ''
+      }))
+      .filter(e => e.link)
+      .sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate))
+      .slice(0,3);
+
+      const mount = document.getElementById('podcast-feed');
+      const fallback = document.getElementById('podcast-fallback');
+      if(episodes.length){
+        episodes.forEach(ep => mount.appendChild(createEpisodeCard(ep)));
+      } else {
+        fallback.style.display = 'block';
+      }
+    }catch(err){
+      console.warn('Podcast JSONP error:', err);
+      const fallback = document.getElementById('podcast-fallback');
+      fallback.textContent = 'Impossibile caricare il podcast.';
+      fallback.style.display = 'block';
+    }
+  };
+
+  (function loadPodcast(){
+    const rssUrl = encodeURIComponent(PODCAST_FEED);
+    const api = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}&count=6&callback=onPodcastFeed`;
+    const s = document.createElement('script');
+    s.src = api;
+    s.onerror = () => {
+      const fb = document.getElementById('podcast-fallback');
+      fb.textContent = 'Impossibile caricare il podcast (errore di rete).';
+      fb.style.display = 'block';
+    };
+    document.body.appendChild(s);
+  })();
+</script>
