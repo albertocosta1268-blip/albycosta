@@ -8,13 +8,13 @@
   <meta property="og:title" content="Alby Costa — Sito Ufficiale">
   <meta property="og:description" content="Speaker radiofonico, blogger e autore. Notizie leggere, curiosità, musica e storie.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://raw.githubusercontent.com/placeholder/cover.jpg">
+  <meta property="og:image" content="assets/img/cover.jpg">
   <meta name="theme-color" content="#0f172a">
   <link rel="icon" href="assets/img/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=2025-10-20">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header class="site-header">
@@ -49,16 +49,9 @@
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
-          <!-- Decorative equalizer bars -->
           <div class="eq">
-            <span style="--h:55%"></span>
-            <span style="--h:85%"></span>
-            <span style="--h:40%"></span>
-            <span style="--h:90%"></span>
-            <span style="--h:60%"></span>
-            <span style="--h:30%"></span>
-            <span style="--h:75%"></span>
-            <span style="--h:45%"></span>
+            <span style="--h:55%"></span><span style="--h:85%"></span><span style="--h:40%"></span><span style="--h:90%"></span>
+            <span style="--h:60%"></span><span style="--h:30%"></span><span style="--h:75%"></span><span style="--h:45%"></span>
           </div>
         </div>
       </div>
@@ -73,13 +66,11 @@
             <p>In onda <strong>dal lunedì al venerdì</strong> alle <strong>16:00</strong></p>
             <p>Su <strong>Radio A.R.C. Rete 101</strong></p>
             <div class="pill-row">
-              <span class="pill">Intrattenimento</span>
-              <span class="pill">Curiosità</span>
-              <span class="pill">Musica</span>
+              <span class="pill">Intrattenimento</span><span class="pill">Curiosità</span><span class="pill">Musica</span>
             </div>
           </div>
           <div class="card-actions">
-            <a class="btn" href="#" aria-disabled="true" title="Link streaming (aggiungi URL quando disponibile)">Ascolta in diretta</a>
+            <a class="btn" href="#" aria-disabled="true" title="Aggiungi qui l'URL streaming della radio">Ascolta in diretta</a>
           </div>
         </div>
       </div>
@@ -102,17 +93,18 @@
         </ul>
       </div>
       <aside class="note">
-        <p><strong>Novità:</strong> Sito aggiornato il 2025-10-20. Se vuoi segnalare un evento o una curiosità, scrivi nella sezione Contatti.</p>
+        <p><strong>Novità:</strong> Sito aggiornato. Se vuoi segnalare un evento o una curiosità, scrivi nella sezione Contatti.</p>
       </aside>
     </section>
 
     <section id="podcast" class="band">
       <div class="container">
         <h2>Podcast</h2>
-        <p>Aggiungi qui il tuo embed Spotify/Anchor quando vuoi.</p>
-        <div class="embed-placeholder">
-          <p>🎧 Embed in arrivo — incolla il codice del tuo player qui.</p>
-        </div>
+        <!-- Embed Spotify ufficiale dello show -->
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/1uUfLgZnpuYkqdAX8jCDAW" width="100%" height="232" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Podcast di Alby"></iframe>
+        <p style="margin-top:.75rem">
+          <a class="btn btn-ghost" href="https://open.spotify.com/show/1uUfLgZnpuYkqdAX8jCDAW?si=dc8b23f7f6ce46c8" target="_blank" rel="noopener">Apri su Spotify</a>
+        </p>
       </div>
     </section>
 
@@ -120,7 +112,7 @@
       <h2>Blog</h2>
       <p>Leggi articoli, recensioni e pensieri su musica e cultura pop.</p>
       <p>
-        <a class="btn" href="#" title="Inserisci qui l'URL del tuo blog">Apri il blog</a>
+        <a class="btn" href="https://ilblogdialby68.blogspot.com" target="_blank" rel="noopener" title="PopNews — Il blog di Alby">Apri il blog</a>
       </p>
     </section>
 
@@ -163,6 +155,13 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('#site-nav');
+    if (toggle && nav) { toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });}
+  </script>
 </body>
 </html>
