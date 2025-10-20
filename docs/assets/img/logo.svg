@@ -1,0 +1,16 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#facc15"/>
+      <stop offset="1" stop-color="#fde68a"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="#0f172a"/>
+  <g transform="translate(16,16)">
+    <circle cx="48" cy="32" r="20" fill="url(#g)"/>
+    <rect x="38" y="50" width="20" height="30" rx="6" fill="#e5e7eb"/>
+    <rect x="24" y="80" width="48" height="8" rx="4" fill="#94a3b8"/>
+  </g>
+  <text x="64" y="116" text-anchor="middle" font-size="16" font-family="Arial" fill="#e5e7eb">ALBY</text>
+</svg>
