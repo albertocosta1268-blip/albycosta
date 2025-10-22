@@ -138,21 +138,39 @@
         const date = new Date(p.published.$t)
                         .toLocaleDateString("it-IT",{day:"2-digit",month:"short",year:"numeric"});
         container.innerHTML += `
-          <div style="border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,.1);
-                      padding:18px;margin:15px 0;background:#fff;color:#222;">
-            <div style="font-size:.85rem;color:#555;">${date}</div>
-            <h3 style="margin:6px 0;"><a href="${link}" target="_blank" rel="noopener"
-                style="color:#111;text-decoration:none;">${title}</a></h3>
-            <p style="color:#333;">${summary}</p>
-            <p><a class="btn btn-ghost" href="${link}" target="_blank" rel="noopener">Leggi</a></p>
+          <div style="
+            border-radius:16px;
+            box-shadow:0 4px 15px rgba(255,255,255,.1);
+            padding:18px;
+            margin:15px 0;
+            background:#111;
+            color:#eee;
+          ">
+            <div style="font-size:.85rem;color:#aaa;">${date}</div>
+            <h3 style="margin:6px 0;">
+              <a href="${link}" target="_blank" rel="noopener"
+                 style="color:#fff;text-decoration:none;">
+                 ${title}
+              </a>
+            </h3>
+            <p style="color:#ccc;">${summary}</p>
+            <p>
+              <a class="btn btn-ghost" href="${link}" target="_blank" rel="noopener"
+                 style="color:#fff;border:1px solid #fff;padding:6px 12px;border-radius:8px;">
+                 Leggi
+              </a>
+            </p>
           </div>
         `;
       });
     }catch(e){
-      document.getElementById("rss-blog").innerHTML = "<p>Errore nel caricamento del feed.</p>";
+      document.getElementById("rss-blog").innerHTML =
+        "<p style='color:#ccc;'>Errore nel caricamento del feed.</p>";
     }
   }
 </script>
+
+
 
 <!-- Feed JSONP di Blogger con immagini -->
 <script src="https://ilblogdialby68.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=3&callback=renderBloggerPosts"></script>
