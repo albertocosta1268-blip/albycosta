@@ -111,13 +111,46 @@
       </div>
     </section>
 
-    <section id="blog" class="container">
+<section id="blog" class="container">
   <h2>Ultimi dal Blog</h2>
-  <iframe src="https://ilblogdialby68.blogspot.com" width="100%" height="600" style="border:none;border-radius:12px;"></iframe>
+  <div id="rss-blog" class="blog-grid">
+    <p>Caricamento articoli in corso...</p>
+  </div>
   <p style="text-align:center;margin-top:10px;">
-    <a class="btn" href="https://ilblogdialby68.blogspot.com" target="_blank" rel="noopener">Visita il blog completo</a>
+    <a class="btn" href="https://ilblogdialby68.blogspot.com" target="_blank" rel="noopener">
+      Vai al blog completo
+    </a>
   </p>
 </section>
+
+<script>
+  async function loadRSS(){
+    try{
+      const res = await fetch("https://ilblogdialby68.blogspot.com/feeds/posts/default?alt=json");
+      const data = await res.json();
+      const container = document.getElementById("rss-blog");
+      container.innerHTML = "";
+      const posts = data.feed.entry.slice(0,3);
+      posts.forEach(p=>{
+        const title = p.title.$t;
+        const link = p.link.find(l=>l.rel==="alternate").href;
+        const summary = (p.summary?.$t || "").replace(/<[^>]+>/g,"").slice(0,100) + "...";
+        const date = new Date(p.published.$t).toLocaleDateString("it-IT",{day:"2-digit",month:"short",year:"numeric"});
+        container.innerHTML += `
+          <div style="border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,.1);padding:15px;margin:10px 0;">
+            <div style="font-size:.85rem;opacity:.7;">${date}</div>
+            <h3 style="margin:6px 0;"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
+            <p>${summary}</p>
+          </div>
+        `;
+      });
+    }catch(e){
+      document.getElementById("rss-blog").innerHTML = "<p>Errore nel caricamento del feed.</p>";
+    }
+  }
+  loadRSS();
+</script>
+
 
 
     <section id="contatti" class="band">
