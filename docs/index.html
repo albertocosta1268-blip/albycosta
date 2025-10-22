@@ -124,10 +124,8 @@
 </section>
 
 <script>
-  async function loadRSS(){
+  function renderBloggerPosts(data){
     try{
-      const res = await fetch("https://ilblogdialby68.blogspot.com/feeds/posts/default?alt=json");
-      const data = await res.json();
       const container = document.getElementById("rss-blog");
       container.innerHTML = "";
       const posts = data.feed.entry.slice(0,3);
@@ -141,6 +139,7 @@
             <div style="font-size:.85rem;opacity:.7;">${date}</div>
             <h3 style="margin:6px 0;"><a href="${link}" target="_blank" rel="noopener">${title}</a></h3>
             <p>${summary}</p>
+            <p><a class="btn btn-ghost" href="${link}" target="_blank" rel="noopener">Leggi</a></p>
           </div>
         `;
       });
@@ -148,9 +147,10 @@
       document.getElementById("rss-blog").innerHTML = "<p>Errore nel caricamento del feed.</p>";
     }
   }
-  loadRSS();
 </script>
 
+<!-- Feed JSONP di Blogger -->
+<script src="https://ilblogdialby68.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=3&callback=renderBloggerPosts"></script>
 
 
     <section id="contatti" class="band">
